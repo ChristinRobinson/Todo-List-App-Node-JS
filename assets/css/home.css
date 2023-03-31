@@ -1,11 +1,4 @@
 /* 
-================
-Global Variables
-================
-*/
-
-
-/* 
 =============
 Global Styles
 =============
@@ -159,6 +152,7 @@ Custom Styles
 }
 
 /* Header Styles Start */
+
 .add-task-button {
   background-color: grey;
 }
@@ -168,6 +162,7 @@ Custom Styles
 }
 
 /* Header Styles End */
+
 
 /* Main Styles Start */
 .tasks__container {

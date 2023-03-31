@@ -43,7 +43,7 @@
 
           <div class="button-group">
             <button type="submit" class="add-task-button button"><i class='bx bx-plus'></i> Add Task</button>
-            <a href="/delete-task/" class="delete-task-button button"><i class='bx bx-trash'></i> Delete Tasks</a>
+            <button type="button" class="delete-task-button button"><i class='bx bx-trash'></i> Delete Tasks</button>
           </div>
         </form>
       </header>
@@ -53,7 +53,7 @@
 
           <% for(let i of todo_list) { %>
           <li class="task__container">
-            <input type="checkbox" name="taskStatus" id="<%= i._id %>">
+            <input type="checkbox" id="<%= i._id %>">
             <label for="<%= i._id %>" class="custom-checkbox align-self-start"><i class='bx bx-check'></i></label>
 
             <div class="task-description__container | flex-grow-1">
@@ -80,23 +80,12 @@
           </li>
           <% } %>
 
-          <!-- <li class="task__container">
-            <input type="checkbox" name="taskStatus" id="task-checkbox">
-            <label for="task-checkbox" class="custom-checkbox align-self-start"><i class='bx bx-check'></i></label>
-
-            <div class="task-description__container | flex-grow-1">
-              <span class="task-description">Task Description</span>
-              <span class="task-due-date"><i class='bx bx-calendar'></i> No Deadline</span>
-            </div>
-
-            <div class="task-category__container | align-self-center">
-              <span class="task-category">Other</span>
-            </div>
-          </li> -->
         </ul>
       </main>
     </div>
 
+    <!-- using jquery for using Ajax  -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="/js/script.js"></script>
   </body>
 

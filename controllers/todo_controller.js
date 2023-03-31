@@ -15,7 +15,6 @@ module.exports.home = async (req, res) => {
 
 module.exports.createTask = async (req, res) => {
 	try {
-		// console.log(req.body)
 		const { category, description, dueDate } = req.body;
 
 		const newTask = await Todo.create({
@@ -24,7 +23,7 @@ module.exports.createTask = async (req, res) => {
 			dueDate,
 		});
 
-		console.log('********* \n', newTask);
+		console.log('*********\n', newTask, '\n*********');
 
 		return res.redirect('back');
 	} catch (error) {
@@ -34,15 +33,12 @@ module.exports.createTask = async (req, res) => {
 
 module.exports.deleteTask = async (req, res) => {
 	try {
-		let id = req.query;
-		console.log(req); 	
-		// let count = Object.keys(id).length;
+		console.log(req.body.deleteTodoArray);
+		for (const id of req.body.deleteTodoArray) {
+			await Todo.findByIdAndDelete(id);
+		}
 
-		// for (let i = 0; i < count; i++ ) {
-		// 	await Todo.findByIdAndDelete(Object.keys(id)[i]);
-		// }
-
-		return res.redirect('back');
+		return res.end(req.headers.referer);
 	} catch (error) {
 		console.log('Error while deleting tasks!', error);
 	}
